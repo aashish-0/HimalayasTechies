@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+// Variables
+$orange: #cb6036;
+$grey: #676767;
+$lightGrey: #939393;
+
+// MIXINS
+@mixin list-items {
+    list-style: none;
+}
+
+@mixin anchor {
+    text-decoration: none;
+}
+
+@mixin image {
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+@mixin container {
+    max-width: 1320px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+@mixin flexbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin partialFlex {
+    display: flex;
+}
+
+@mixin transition {
+    transition: all ease-in .3s;
+}
+
+@mixin btn {
+    background-color: #fff;
+    color: #000;
+    padding: 10px 50px;
+    @include transition;
+    border-radius: 50px;
+}
+
+li {
+    @include list-items;
+}
+
+a {
+    @include anchor;
+}
+
+img {
+    @include image;
+}
+
+.container {
+    @include container;
+}
+
+.btn {
+    @include btn;
+}
+
+.btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+header {
+    position: relative;
+}
+
+.header {
+    padding: 20px;
+    @include flexbox;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0;
+    z-index: 1;
+
+    &__brandLogo {
+        p {
+            background-color: #000;
+            padding: 20px;
+            @include flexbox;
+            border-radius: 50%;
+            margin-bottom: 20px;
+
+            a {
+                font-size: 1.6rem;
+                color: #fff;
+                letter-spacing: 2px;
+            }
+        }
+    }
+
+    &__brandLogo {
+        height: 100%;
+    }
+
+    &__navigations {
+        display: flex;
+        align-items: center;
+        gap: 150px;
+
+        li {
+            a {
+                font-size: 2.5rem;
+                color: #000;
+                font-weight: 500;
+                @include transition;
+            }
+
+            a:hover {
+                color: red;
+            }
+        }
+    }
+}
+
+main {
+    z-index: 9;
+}
+
+.banner {
+    position: relative;
+
+    video {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center center;
+        opacity: 1;
+        max-height: 900px;
+    }
+
+    &__content--wrapper {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        color: #fff;
+    }
+
+    &__content {
+        background-color: rgba(0, 0, 0, 0.634);
+        padding: 20px;
+
+        a {
+            font-size: 1.3rem;
+        }
+    }
+
+    &__content--heading {
+        font-size: 5rem;
+    }
+
+    &__content--supportText {
+        font-size: 1.7rem;
+        margin-bottom: 30px;
+    }
+
+}
+
+.expertise {
+    padding-block: 100px;
+    &__wrapper {
+        @include flexbox;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    &__leftSide {
+        width: 30%;
+    }
+
+    &__rightSide {
+        width: 70%;
+    }
+
+    &__svg {
+        margin-right: -50px;
+
+        svg {
+            width: 700px;
+            height: 700px;
+        }
+    }
+
+    &__cards {
+        @include flexbox;
+        flex-wrap: wrap;
+    }
+
+    &__card {
+        padding: 20px;
+        width: 50%;
+        border-radius: 20px;
+        text-align: center;
+        cursor: pointer;
+        background-color: $lightGrey;
+        height: 365px;
+    }
+
+    &__card:nth-child(1),
+    &__card:nth-child(4) {
+        background-color: $orange;
+        color: #fff;
+    }
+
+   
+
+    &__card--heading {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    &__card--text{
+        color: #000;
+        margin-bottom: 20px;
+    }
+    &__card--button{
+        a{
+            background-color: #fff;
+            padding: 10px 20px;
+            border-radius: 50px;
+            color: $orange;
+            text-transform: capitalize;
+            font-weight: 500;
+        }
+    }
+}
